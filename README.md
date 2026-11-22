@@ -34,8 +34,8 @@ Users should be able to:
 
 ### Screenshots
 
-![Desktop screenshot](./screenshots/desktop.png)
-![Mobile screenshot](./screenshots/mobile.png)
+![Desktop screenshot](./src/screenshots/desktop.png)
+![Mobile screenshot](./src/screenshots/mobile.png)
 
 ### Links
 
