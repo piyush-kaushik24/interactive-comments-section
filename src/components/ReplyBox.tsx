@@ -1,6 +1,6 @@
 "use client";
 
-import { addReply } from "../../actions/actions";
+import { addReply } from "../app/actions/actions";
 import { AuthUser, Comment } from "@/types/comment";
 import UserAvatar from "./UserAvatar";
 

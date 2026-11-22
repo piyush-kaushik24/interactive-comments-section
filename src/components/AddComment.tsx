@@ -1,7 +1,7 @@
 "use client";
 import { AuthUser, Comment } from "@/types/comment";
 import Button from "./buttons/Button";
-import { addComment } from "../../actions/actions";
+import { addComment } from "../app/actions/actions";
 import UserAvatar from "./UserAvatar";
 import { useRef } from "react";
 

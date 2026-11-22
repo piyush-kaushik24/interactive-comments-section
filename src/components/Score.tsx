@@ -1,6 +1,6 @@
 "use client";
 
-import { decreaseScore, increaseScore } from "../../actions/actions";
+import { decreaseScore, increaseScore } from "../app/actions/actions";
 import { ICONS } from "@/constants/icons";
 import Image from "next/image";
 import { useState } from "react";

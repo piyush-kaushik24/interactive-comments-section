@@ -1,6 +1,6 @@
 "use client";
 
-import { deleteComment } from "../../actions/actions";
+import { deleteComment } from "../app/actions/actions";
 import ModelBtn from "@/components/buttons/ModelBtn";
 import { useState } from "react";
 type ConfirmationProps = {

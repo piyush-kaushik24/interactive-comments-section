@@ -1,5 +1,5 @@
 "use client";
-import { editComment } from "../../actions/actions";
+import { editComment } from "../app/actions/actions";
 import { Comment } from "@/types/comment";
 import { useState } from "react";
 
