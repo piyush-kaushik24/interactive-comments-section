@@ -43,7 +43,8 @@ async function seedDatabase() {
       id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
       user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
       voted_on_id INTEGER REFERENCES comments(id) ON DELETE CASCADE,
-      vote INTEGER DEFAULT 0 NOT NULL
+      vote INTEGER DEFAULT 0 NOT NULL,
+       CONSTRAINT unique_user_vote UNIQUE (user_id, voted_on_id)
     );
   `;
 
