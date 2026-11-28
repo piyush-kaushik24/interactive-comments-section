@@ -23,7 +23,6 @@ function ReplyBox({
   async function handleSubmitReply(formData: FormData) {
     const reply = formData.get("reply") as string;
     if (!reply || !currentUser) return;
-    // 1. Create temporary reply
     const tempReply: Comment = {
       id: Date.now(),
       content: reply,
@@ -31,21 +30,22 @@ function ReplyBox({
       score: 0,
       user: currentUser.username,
       image: currentUser.avatar,
-      parent_id: comment.id, // 👈 Points to the comment you're replying to!
-      replying_to: comment.user, // 👈 Stores who you're replying to
+      parent_id: comment.id,
+      replying_to: comment.user,
       userVote: null,
-      sending: true, // 👈 Opacity flag
+      sending: true,
     };
-    // 2. Show on screen instantly & close the reply box
+
     onAddOptimistic(tempReply);
     onReply(false);
-    // 3. Send to server in the background
-    await addReply(formData, comment.id, comment.user, currentUser.id);
+
+    await addReply(formData, comment.id);
   }
+  const replyInputId = `reply-input-${comment.id}`;
   return (
     <div>
       <form action={handleSubmitReply}>
-        <label htmlFor="replyInput" className="sr-only">
+        <label htmlFor={replyInputId} className="sr-only">
           {`Reply to ${comment.user}`}
         </label>
         <div
@@ -53,9 +53,10 @@ function ReplyBox({
         >
           <textarea
             name="reply"
-            id="replyInput"
+            id={replyInputId}
             placeholder={`Reply to @${comment.user}`}
             className="border-neutral-grey-100 min-h-30 w-full rounded-lg border-2 p-2"
+            required
             onKeyDown={(e) => {
               if (e.key === "Enter" && !e.shiftKey) {
                 e.preventDefault();

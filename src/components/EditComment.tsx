@@ -14,13 +14,16 @@ function EditComment({ comment, onEdit }: EditCommentProps) {
     await editComment(comment.id, newComment);
     onEdit();
   }
+  const editInputId = `edit-input-${comment.id}`;
   return (
     <div>
-      <label htmlFor="replyInput" className="sr-only"></label>
+      <label htmlFor={editInputId} className="sr-only">
+        Edit comment
+      </label>
       <div>
         <textarea
           name="reply"
-          id="replyInput"
+          id={editInputId}
           value={newComment}
           required
           onChange={(e) => setNewComment(e.target.value)}

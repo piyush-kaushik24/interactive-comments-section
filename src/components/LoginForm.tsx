@@ -26,18 +26,18 @@ function LoginForm() {
     <main className="bg-primary-purple-200/50 flex min-h-screen items-center justify-center">
       <div className="bg-neutral-grey-100 w-3/4 space-y-6 rounded-xl p-6 md:w-100">
         <h1 className="sr-only text-center text-3xl">Log in</h1>
-        <p className="text-center">
+        <p className="text-center" role="alert">
           <span className="font-semibold">Don&apos;t have an account? </span>
           <span className="text-primary-purple-600 inline-block font-bold underline transition-all hover:scale-105 hover:opacity-80">
-            <Link className="cursor-pointer" href="/signup  ">
+            <Link className="cursor-pointer" href="/signup">
               Sign up
             </Link>
           </span>
         </p>
         {error && (
-          <div className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-600">
+          <p className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-600">
             {error}
-          </div>
+          </p>
         )}
         <form
           action={handleLogin}

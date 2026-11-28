@@ -82,7 +82,7 @@ export async function loginAction(formData: FormData) {
 
   const isMatch = await bcrypt.compare(password, user.password_hash);
   if (!isMatch) {
-    return { error: "Invalid password" };
+    return { error: "Invalid credentials" };
   }
 
   const sessionId = crypto.randomUUID();

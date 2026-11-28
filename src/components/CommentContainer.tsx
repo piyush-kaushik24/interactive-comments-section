@@ -79,7 +79,7 @@ function CommentContainer({
   userComments,
 }: CommentContainerProps) {
   const [modelOpen, setModelOpen] = useState(false);
-  const [getId, setGetId] = useState<number | null>(null);
+  const [getId, setGetId] = useState(0);
 
   const [optimisticComments, addOptimisticComment] = useOptimistic(
     userComments,
@@ -135,7 +135,9 @@ function CommentContainer({
         currentUser={currentUser}
         onAddOptimistic={addOptimisticComment}
       />
-      {modelOpen && <Confirmation onOpen={handleOpen} id={getId} />}
+      {modelOpen && (
+        <Confirmation onOpen={handleOpen} isOpen={modelOpen} id={getId} />
+      )}
     </div>
   );
 }

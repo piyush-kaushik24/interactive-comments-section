@@ -11,7 +11,6 @@ function SignUPForm() {
   async function handleSubmit(formData: FormData) {
     setError(null);
     const result = await signUp(formData);
-    console.log(formData);
     if (result?.error) {
       setError(result.error);
     }

@@ -36,7 +36,7 @@ function AddComment({ currentUser, onAddOptimistic }: AddCommentProps) {
       addCommentRef.current.value = "";
     }
 
-    await addComment(formData, currentUser.id);
+    await addComment(formData);
   }
 
   return (
